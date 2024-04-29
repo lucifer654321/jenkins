@@ -9,8 +9,7 @@ COPY ../../jenkins-agent /usr/local/bin/jenkins-agent
 COPY ../../kubectl /usr/local/bin/kubectl
 #COPY ../../sources.list /etc/apt/sources.list
 
-RUN 
-    chmod +x /usr/local/bin/jenkins-agent &&\
+RUN chmod +x /usr/local/bin/jenkins-agent &&\
     ln -s /usr/local/bin/jenkins-agent /usr/local/bin/jenkins-slave &&\
     usermod -a -G root jenkins &&\
     usermod -a -G docker jenkins
