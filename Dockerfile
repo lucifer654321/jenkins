@@ -12,7 +12,7 @@ RUN chmod +x /usr/local/bin/jenkins-agent \
         && ln -s /usr/local/bin/jenkins-agent /usr/local/bin/jenkins-slave \
         && usermod -a -G root jenkins \
         && groupadd -g 994 docker \
-        && groupmod -a -G docker jenkins
+        && usermod -a -G docker jenkins
 USER ${user}
 
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
