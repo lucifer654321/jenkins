@@ -6,9 +6,10 @@ ARG user=jenkins
 
 USER root
 COPY ../../jenkins-agent /usr/local/bin/jenkins-agent
+COPY ../../kubectl /usr/local/bin/kubectl
 RUN chmod +x /usr/local/bin/jenkins-agent &&\
     ln -s /usr/local/bin/jenkins-agent /usr/local/bin/jenkins-slave &&\
-    chmod -G root jenkins
+    chmod -a -G root jenkins
 USER ${user}
 
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
